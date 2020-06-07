@@ -5,7 +5,7 @@ hand = cv2.imread('handhand.png',0)
 
 ret, the = cv2.threshold(hand, 70, 255, cv2.THRESH_BINARY)
 
-contours, heirarchy = cv2.findContours(the.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+contours, hierarchy = cv2.findContours(the.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
 hull = [cv2.convexHull(c) for c in contours]
 final = cv2.drawContours(hand, hull, -1, (255, 0, 0))
