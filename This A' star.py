@@ -63,8 +63,12 @@ class Spot:        # to keep track of the spots
 
     def make_path(self):
         self.color == PURPLE        # all them new methods to fill and assign colors n all
+    
+    def draw(self, win):
+        pygame.draw.rect(win, self.color, (self.x, self.y, self.width, self.width))
 
-          
-
-
+    def update_neighbors(self, grid):
+        pass
+    def __lthan__(self, other):
+        return False
 
