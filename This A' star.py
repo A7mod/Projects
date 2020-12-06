@@ -154,7 +154,15 @@ def main(win, width):
                     spot.make_barrier()    
 
             elif pygame.mouse.get_pressed()[2]:   #Right
-                pass
+                pos = pygame.mouse.get_pos()
+                row, col = get_clicked_pos(pos, ROWS, width)
+                spot = grid[row][col]
+                spot.reset()
+                if spot == start:
+                    start = None
+                if spot == end:
+                    end = None
+
 
     pygame.quit()
 
