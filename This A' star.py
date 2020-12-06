@@ -95,6 +95,17 @@ def h(p1, p2):                       #method for manhattan distance? ig
     x2, y2 = p2
     return abs(x1 - x2) + abs(y1 - y2)
 
+
+def algorithm(draw, grid, start, end):
+    count = 0
+    open_set = PriorityQueue()
+    open_set.put((0, count, start))
+    came_from = {}                   # dictionary for keeping track of what came anf from where
+    g_score = {spot: float("inf") for row in grid for spot in row}
+    g_score[start] = 0    
+    f_score = {spot: float("inf") for row in grid for spot in row}  #f_score for our end node
+    f_score[start] = h(start.get_pos(), end.get_pos())             
+
 def make_grid(rows, width):          #makegrid method for the grid to exist?
     grid = []
     gap = width // rows
@@ -183,6 +194,8 @@ def main(win, width):
                         for spot in row:
                             spot.update_neighbors()
 
+                    algorithm(lambda : draw(win, grid, ROWS, width), grid, start, end)
+                    x =   
 
     pygame.quit()
 
