@@ -47,25 +47,25 @@ class Spot:        # to keep track of the spots
         return self.color == TURQUOISE
 
     def reset(self):
-        self.color == WHITE
+        self.color = WHITE
 
     def make_start(self):         # added method for starting point
         self.color = ORANGE    
 
     def make_closed(self):
-        self.color == RED
+        self.color = RED
 
     def make_open(self):
-        self.color == GREEN
+        self.color = GREEN
 
     def make_barrier(self):
-        self.color == BLACK
+        self.color = BLACK
 
     def make_end(self):
-        self.color == TURQUOISE
+        self.color = TURQUOISE
 
     def make_path(self):
-        self.color == PURPLE        # all them new methods to fill and assign colors n all
+        self.color = PURPLE        # all them new methods to fill and assign colors n all
     
     def draw(self, win):
         pygame.draw.rect(win, self.color, (self.x, self.y, self.width, self.width))
@@ -142,11 +142,11 @@ def main(win, width):
                 pos = pygame.mouse.get_pos()
                 row, col = get_clicked_pos(pos, ROWS, width)
                 spot = grid[row][col]
-                if not start:
+                if not start and spot != end:
                     start = spot
                     start.make_start()
 
-                elif not end:
+                elif not end and spot!= start:
                     end = spot
                     end.make_end()
 
