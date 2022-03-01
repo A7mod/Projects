@@ -1,5 +1,5 @@
 import time
-print("What shall I remind you about?")t
+print("What shall I remind you about?")
 text = str(input())
 print("In how many minutes?")
 local_time = float(input())
